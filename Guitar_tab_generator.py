@@ -5,6 +5,7 @@ from tkinter import *
 import random as rand
 
 # Programme principal
+# diff
 
 root = Tk()
 root.title("Generateur_de_riffs")
