@@ -9,7 +9,7 @@ import random as rand
 
 root = Tk()
 root.title("Generateur_de_riffs")
-photo = PhotoImage(file='tab.png')
+photo = PhotoImage(file='assets/tab.gif')
 widthim,heightim = photo.width(),photo.height()
 can = Canvas(root,width = widthim,height = heightim)
 can.create_image(widthim/2,heightim/2,image = photo)
