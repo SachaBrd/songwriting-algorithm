@@ -1,17 +1,7 @@
 # Generate structure for a song
+import random
 
-import random as rand
-
-liste_notes = ['E','F','F#','G','G#','A','A#','B','C','C#','D','D#']
-
-def generate_to_algorithm(rootN,Sc,TSig):
-
-    # Initialise variables
-
-    fondamentale = 0
-    gamme = 0
-    notesMax = 0
-
+def fondamentale_transcription(rootN):
     # Switch case
     if (rootN) == "E":
         fondamentale = 0
@@ -38,6 +28,9 @@ def generate_to_algorithm(rootN,Sc,TSig):
     else:
         fondamentale = 11
 
+    return fondamentale
+
+def gamme_transcription(Sc):
     # Switch case
     if (Sc) == "Majeur":
         gamme = [0, 2, 3, 5, 7, 8, 10]
@@ -54,6 +47,18 @@ def generate_to_algorithm(rootN,Sc,TSig):
     # gamme chromatique
     else:
         gamme = range(11)
+
+    return gamme
+
+
+def generate_melody(rootN,Sc,TSig):
+
+    # Initialise variables
+    notesMax = 0
+
+    fondamentale = fondamentale_transcription(rootN)
+
+    gamme = gamme_transcription(Sc)
 
     aux = []
     for i in range(len(gamme)):
@@ -72,8 +77,18 @@ def generate_to_algorithm(rootN,Sc,TSig):
 
     return fondamentale, gamme, notesMax
 
-print(generate_to_algorithm('B', 'Majeur', '4/4'))
-
-
+def generate_chords(fondamentale, Sc):
+    dict_notes = {'E': 0 , 'F': 1, 'F#': 2, 'G': 3, 'G#': 4, 'A': 5, 'A#': 6, 'B': 7, 'C': 8, 'C#': 9, 'D': 10, 'D#': 11}
+    inv_notes = {v: k for k, v in dict_notes.items()}
+    chords = []
+    for i in range(4):
+        chord = random.choice(gamme_transcription(Sc))
+        base = fondamentale_transcription(fondamentale)
+        current_chord = chord + base
+        if current_chord > 11 :
+            current_chord -= 11
+        current_chord=inv_notes.get(current_chord)
+        chords.append(current_chord)
+    return chords
 
 

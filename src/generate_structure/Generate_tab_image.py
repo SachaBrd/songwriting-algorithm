@@ -65,14 +65,7 @@ def generate_tab_for_parameters(fondamentale,gamme,notesMax):
         else :
             d1.text((dim_notes[i], cordeD), str(fondamentale + 1), fill=(0, 0, 0), font=font)
 
-    img.show()
+    # img.show()
     img.save("../../assets/img_bin/generated_tab.jpg")
 
-    return 0
-
-# On suppose ça en retour
-testFondamentale = 7
-testGamme = [0, 2, 3, 5, 7, 8, 10]
-testNotesMax = 8
-
-generate_tab_for_parameters(fondamentale=testFondamentale, gamme=testGamme, notesMax=testNotesMax)
+    return None

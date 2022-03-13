@@ -10,7 +10,6 @@ import re
 # Import api token
 GENIUS_API_TOKEN='ABSJKXJDJZGjXN3HJ2BvHaQnoWa71aKojhCsNX-T9mI39EySw6JjCArBXAYx-xvW'
 
-
 # Get artist object from Genius API
 def request_artist_info(artist_name, page):
     base_url = 'https://api.genius.com'
@@ -79,7 +78,7 @@ def generate_song_from_artist(artist, nb_of_songs):
 
 def generate_lyrics_from_song(song_url):
     all_lyrics = scrape_song_lyrics(song_url)
-    return all_lyrics[random.randint(0, len(all_lyrics))]
+    return all_lyrics[random.randint(0, len(all_lyrics)) - 1]
 
 def generate_n_lyrics_from_song(artist, nb_of_songs, nb_of_lyrics_to_generate):
     chosen_song = generate_song_from_artist(artist, nb_of_songs)
@@ -98,6 +97,8 @@ def generate_n_lyrics_from_artist(artist, nb_of_songs, nb_of_lyrics_to_generate)
 
 # -------- MAIN --------
 
-print(generate_n_lyrics_from_song('PNL', 5, 8))
-print('\n')
-print(generate_n_lyrics_from_artist('PNL', 1, 4))
+# genere des paroles en fonction du nom de l'artistes, le nombre de titres les plus populaires et le nombre de
+# paroles a afficher
+
+# print(generate_n_lyrics_from_song('Leprous', 5, 8))
+# print(generate_n_lyrics_from_artist('Leprous', 5, 8))
