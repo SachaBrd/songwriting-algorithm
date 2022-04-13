@@ -218,7 +218,7 @@ def generate_chords(fondamentale, Sc):
 
 
 def generate_tab_for_parameters(fondamentale,gamme,notesMax):
-    img = Image.open("../../assets/tab.png")
+    img = Image.open("./assets/tab.png")
 
     font = ImageFont.truetype(font='Arial.ttf', size=18)
 
@@ -280,7 +280,7 @@ def generate_tab_for_parameters(fondamentale,gamme,notesMax):
             d1.text((dim_notes[i], cordeD), str(fondamentale + 1), fill=(0, 0, 0), font=font)
 
     # img.show()
-    img.save("../../assets/img_bin/generated_tab.jpg")
+    img.save("./assets/img_bin/generated_tab.jpg")
 
     return None
 
@@ -342,7 +342,7 @@ skip_line_in_pdf(8)
 pdf.cell(200, 5, txt="Main melody :", ln=2, align='L')
 
 # Image
-pdf.image('../../assets/img_bin/generated_tab.jpg', w=90, h=30)
+pdf.image('./assets/img_bin/generated_tab.jpg', w=90, h=30)
 
 def write_verse(verse_title, chords, lyrics):
     pdf.cell(200, 5, txt=verse_title, ln=2, align='L')
@@ -381,4 +381,4 @@ skip_line_in_pdf(3)
  ln=2, align='L'), skip_line_in_pdf(3)) for l in lyrics_chorus]
 
 # save the pdf with name .pdf
-pdf.output("../../assets/PDF_bin/Randomly_generated_song.pdf")
+pdf.output("./assets/PDF_bin/Randomly_generated_song.pdf")
